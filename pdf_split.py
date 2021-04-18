@@ -33,11 +33,10 @@ if out == None:
 with open(out, 'wb') as fout:
     merger.write(fout)
 
-if os.name == 'Windows':
-    cmd_to_del = 'del'
-else:
+if os.name == 'posix':
     cmd_to_del = 'rm'
+else:
+    cmd_to_del = 'del'
 
 for i in range(n_pages):
     os.system(f'{cmd_to_del} page{i}.pdf') 
-
